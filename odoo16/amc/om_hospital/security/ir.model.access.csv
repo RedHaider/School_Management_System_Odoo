@@ -1,0 +1,17 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+
+access.hospital.patient_marchant,access_hospital_patient,om_hospital.model_hospital_patient,om_hospital.techtrioz_group_marchant,1,1,1,1
+access.hospital.patient_user,access_hospital_patient,om_hospital.model_hospital_patient,om_hospital.techtrioz_group_user,1,0,0,0
+
+access.hospital.doctor_marhcant,access_hospital_doctor,om_hospital.model_hospital_doctor,om_hospital.techtrioz_group_marchant,1,1,1,1
+access.hospital.doctor_user,access_hospital_doctor,om_hospital.model_hospital_doctor,om_hospital.techtrioz_group_user,0,0,0,0
+
+access.hospital.ward_marchant,access_hospital_ward,om_hospital.model_hospital_ward,om_hospital.techtrioz_group_marchant,1,1,1,1
+access.hospital.ward_user,access_hospital_ward,om_hospital.model_hospital_ward,om_hospital.techtrioz_group_user,1,0,0,0
+
+
+access.hospital.patient_all,access_hospital_patient,om_hospital.model_hospital_patient,base.group_user,1,1,1,1
+access.hospital.doctor_all,access_hospital_doctor,om_hospital.model_hospital_doctor,base.group_user,1,1,1,1
+access.hospital.ward_all,access_hospital_ward,om_hospital.model_hospital_ward,base.group_user,1,1,1,1
+access_hospital_patient_appointment,Access Hospital Patient Appointment,model_hospital_patient_appointment,base.group_user,1,1,1,1

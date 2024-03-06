@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+complaint_testing.access_testing_one,access_testing_one,complaint_testing.model_testing_one,base.group_user,1,1,1,1
+complaint_testing.access_testing_two,access_testing_two,complaint_testing.model_testing_two,base.group_user,1,1,1,1
+
+complaint_testing.access_testing_one_transient,access_testing_one_transient,complaint_testing.model_testing_one_transient,base.group_user,1,1,1,1

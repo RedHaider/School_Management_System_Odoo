@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+         
+    <record id="view_hospital_patient_tree" model="ir.ui.view">
+    <field name="name">hospital.patient.tree</field>
+    <field name="model">hospital.patient</field>
+    <field name="arch" type="xml">
+        <tree>
+            <field name="f_name"/>
+            <field name="l_name"/>
+            <field name="fullname"/>
+            <field name="code"/>
+            <field name="age"/>
+            <field name="gender"/>
+            <field name="doctor"/>
+            <field name="ward"/>
+            <field name="user_id"/>
+        </tree>
+    </field>
+</record>
+
+         <record id="view_hospital_patient_form" model="ir.ui.view">
+            <field name="name">hospital.patient.form</field>
+            <field name="model">hospital.patient</field>
+            <field name="arch" type="xml">
+                <form>
+                <header>
+                    <button string="View Ward" class="oe_highlight" type="object"  name="action_ward"/>
+                    <button name="action_done" type="object" string="Done" class="oe_highlight" />
+                    <field name="state" widget='statusbar'/>
+                </header>
+                  <sheet>
+                  <div class="oe_title">
+                    <h1>
+                        <field name="trainee_id" readonly="1"/>
+                    </h1>
+                </div>
+                  <group>
+                    <group>
+                        <field name="f_name"/>
+                        <field name="l_name"/>
+                        <field name="age"/>
+                        <field name="user_id"/>
+                    </group>
+                    <group>
+                        <field name="gender"/>
+                        <field name="code"/>
+                        <field name="doctor"/>
+                        <field name="ward"/>
+                    </group>
+                  </group>
+                  </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_hospital_patient_search" model="ir.ui.view">
+            <field name="name">hospital.patient.search</field>
+            <field name="model">hospital.patient</field>
+            <field name="arch" type="xml">
+                <search>    
+                <filter string="name" name="name_contains" domain="['|', ('fullname', 'ilike', self), ('gender', 'ilike', self)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Group by Gender" name="group_by_gender" context="{'group_by': 'gender'}"/>
+                    <separator/>
+                    <filter string="Group by Age" name="group_by_age" context="{'group_by': 'age'}"/>
+                    <separator/>
+                    <filter string="Group by Ward" name="group_by_ward" context="{'group_by': 'ward'}"/>
+                </group>
+                <field name="gender"/>
+                <field name="fullname"/>
+                </search>
+            </field>
+        </record>
+        
+        <data>
+        <record id="action_hospital_patient" model="ir.actions.act_window">
+                <field name="name">Patients</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">hospital.patient</field>
+                <field name="view_mode">tree,form</field>
+                <!-- <field name="context">{'search_default_group_by_age': 1}</field> -->
+                <field name="context">{}</field>
+                <field name="help" type="html">
+                  <p class="o_view_nocontent_smile_face">
+                      Create your first patient !
+                  </p>
+                </field>
+        </record>
+        </data>
+        <menuitem id="menu_patient"
+                  name="Patient"
+                  action="action_hospital_patient"
+                  parent="menu_patient_master"
+                  sequence="1"
+        />
+    
+        
+        
+    
+</odoo>

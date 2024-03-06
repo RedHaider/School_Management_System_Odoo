@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        
+    
+        <menuitem id="menu_custom_sale_root"
+                  name="Techtrioz Sale Replica"
+                  sequence="0"
+        />
+        <menuitem id="menu_custom_sale_quotation_master"
+                  name="Quotation"
+                  parent="menu_custom_sale_root"
+                  sequence="0"
+        />
+        <menuitem id="menu_custom_sale_order_parent"
+                  name="Order Line"
+                  parent="menu_custom_sale_root"
+                  sequence="1"
+        />
+       
+    
+</odoo>

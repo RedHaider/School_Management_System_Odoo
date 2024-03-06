@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_complain_employee_kanban" model="ir.ui.view">
+        <field name="name">complain.employee.kanban</field>
+        <field name="model">complain.employee</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="status">
+                <field name="image" widget="image" options="{'size': [50, 50]}" class="oe_avatar"/>
+                <field name="id"/>
+                <field name="name"/>
+                <field name="age"/>
+                <field name="gender"/>
+                <field name="complain"/>
+                <field name="status"/>
+
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <!--                            <div class="row">-->
+                                <!--                                <div class="col-6">-->
+                                <!--                                    <strong>-->
+                                <!--                                        <field name="name"/>-->
+                                <!--                                    </strong>-->
+                                <ul style="font-size: 18.5px;">
+                                    <li>
+                                        <field name="image" widget="image" options="{'size': [50, 50]}"
+                                               class="oe_avatar"/>
+                                    </li>
+                                    <li>
+                                        ID:
+                                        <field name="id"/>
+                                    </li>
+                                    <li>
+                                        Name:
+                                        <field name="name"/>
+                                    </li>
+                                    <li>
+                                        Age:
+                                        <field name="age"/>
+                                    </li>
+                                    <li>
+                                        Gender:
+                                        <field name="gender"/>
+                                    </li>
+                                    <li>
+                                        Complain:
+                                        <field name="complain"/>
+                                    </li>
+                                    <li>
+                                        Status:
+                                        <field name="status"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <record id="view_complain_employee_graph" model="ir.ui.view">
+        <field name="name">complain.employee.graph</field>
+        <field name="model">complain.employee</field>
+        <field name="arch" type="xml">
+            <graph>
+                <field name="status"/>
+            </graph>
+        </field>
+    </record>
+
+
+    <record id="view_complain_employee_form" model="ir.ui.view">
+        <field name="name">complain.employee.form</field>
+        <field name="model">complain.employee</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+
+                    <field name="image" widget="image" options="{'size': [50, 50]}" class="oe_avatar"/>
+                    <group>
+                        <field name="id"/>
+                        <field name="name"/>
+                        <field name="contact"/>
+                        <field name="age"/>
+                        <field name="gender"/>
+                        <field name="designation"/>
+                        <field name="department"/>
+                        <field name="complain"/>
+                        <field name="status"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_complain_employee_tree" model="ir.ui.view">
+        <field name="name">complain.employee.tree</field>
+        <field name="model">complain.employee</field>
+        <field name="arch" type="xml">
+            <tree>
+
+
+                    <field name="image" widget="image" options="{'size': [50, 50]}" class="oe_avatar"/>
+                    <field name="id"/>
+                    <field name="name"/>
+                    <field name="contact"/>
+                    <field name="age"/>
+                    <field name="gender"/>
+                    <field name="designation"/>
+                    <field name="department"/>
+                    <field name="complain"/>
+                    <field name="status" widget="badge"
+                           decoration-info="status == 'on_process'"
+                           decoration-warning="status == 'pending'"
+                           decoration-success="status == 'accepted'"
+                    />
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="action_complain_employee" model="ir.actions.act_window">
+        <field name="name">Employee</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">complain.employee</field>
+        <field name="view_mode">tree,form,kanban,graph</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smile_face">
+                Create your first Complain!
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_employee_complain"
+              name="Employee Complain"
+              action="action_complain_employee"
+              parent="menu_employee_master"
+              sequence="1"
+    />
+
+</odoo>

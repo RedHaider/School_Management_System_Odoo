@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="techtrioz_category_hospital" model="ir.module.category">
+            <field name="name">Hospital</field>
+        </record>
+        <record id="techtrioz_group_marchant" model="res.groups">
+            <field name="name">Marchant</field>
+            <field name="category_id" ref="techtrioz_category_hospital"/>
+        </record>
+        <record id="techtrioz_group_user" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="techtrioz_category_hospital"/>
+        </record>
+        <record model="ir.rule" id="techtrioz_group_user_rule">
+            <field name="name">User Rules</field>
+            <field name="model_id" ref="model_hospital_patient"/> <!-- Specify the model_id -->
+            <field name="domain_force">[('user_id','=',user.id)]</field>
+            <field name="groups" eval="[(4, ref('techtrioz_group_marchant'))]"/>
+       </record>
+
+</odoo>

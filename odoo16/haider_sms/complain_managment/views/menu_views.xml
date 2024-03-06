@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <menuitem id="menu_complain_root"
+                  name="Complain"
+                  sequence="0"
+        />
+        <menuitem id="menu_employee_master"
+                  name="Complain Employee"
+                  parent="menu_complain_root"
+                  sequence="0"
+        />
+
+</odoo>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <menuitem id="menu_techtrioz_root"
+                  name="TechTrioz Training"
+                  sequence="0"
+        />
+        <menuitem id="menu_trainee_master"
+                  name="Trainee Details"
+                  parent="menu_techtrioz_root"
+                  sequence="0"
+        />
+        <menuitem id="menu_designation_master"
+                  name="Designation Details"
+                  parent="menu_techtrioz_root"
+                  sequence="1"
+        />
+        <menuitem id="menu_location_master"
+                  name="Location Details"
+                  parent="menu_techtrioz_root"
+                  sequence="2"
+        />
+        <menuitem id="menu_trainer_master"
+                  name="Trainer Details"
+                  parent="menu_techtrioz_root"
+                  sequence="3"
+        />
+        <menuitem id="menu_subject_master"
+                  name="Subject Details"
+                  parent="menu_techtrioz_root"
+                  sequence="4"
+        />
+        <menuitem id="menu_topic_master"
+                  name="Topic Details"
+                  parent="menu_techtrioz_root"
+                  sequence="5"
+        />
+        <menuitem id="menu_stages_master"
+                  name="Stage Details"
+                  parent="menu_techtrioz_root"
+                  sequence="6"
+        />
+        <menuitem id="menu_employee_master"
+                  name="Employee Details"
+                  parent="menu_techtrioz_root"
+                  sequence="7"
+        />
+        <menuitem id="menu_transient_master"
+                  name="Transiet Details"
+                  parent="menu_techtrioz_root"
+                  sequence="7"
+        />
+
+</odoo>
+

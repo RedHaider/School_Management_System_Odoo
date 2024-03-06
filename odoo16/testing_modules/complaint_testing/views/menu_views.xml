@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <menuitem id="menu_testing_root"
+                  name="TESTING"
+                  sequence="0"
+        />
+        <menuitem id="menu_testing_one_master"
+                  name="TESTING ZERO"
+                  parent="menu_testing_root"
+                  sequence="0"
+        />
+        <menuitem id="menu_testing_two_master"
+                  name="TESTING TWO"
+                  parent="menu_testing_root"
+                  sequence="1"
+        />
+
+</odoo>

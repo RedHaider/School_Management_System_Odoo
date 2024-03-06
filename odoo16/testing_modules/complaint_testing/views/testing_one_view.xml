@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="view_testing_one_kanban" model="ir.ui.view">
+    <field name="name">testing.one.kanban</field>
+    <field name="model">testing.one</field>
+    <field name="arch" type="xml">
+        <kanban>
+            <templates>
+                <t t-name="kanban-box">
+                    <div t-attf-class="oe_kanban_global_click">
+                        <div class="oe_kanban_details">
+                            <ul style="font-size: 18.5px;">
+                                <li>
+                                    <field name="image_proof" widget="image" options="{'size': [50, 50]}" class="oe_avatar"/>
+                                </li>
+                                <li>
+                                    Designation: <field name="designation"/>
+                                </li>
+                                <li>
+                                    Department: <field name="department"/>
+                                </li>
+                                <li>
+                                    Complain: <field name="complain"/>
+                                </li>
+                                <li>
+                                    Status: <field name="status"/>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </t>
+
+            </templates>
+
+            <field name="image_proof" widget="image" options="{'size': [50, 50]}" class="oe_avatar"/>
+            <field name="designation"/>
+            <field name="department"/>
+            <field name="complain"/>
+            <field name="status"/>
+        </kanban>
+    </field>
+</record>
+
+<record id="view_testing_one_form" model="ir.ui.view">
+    <field name="name">testing.one.form</field>
+    <field name="model">testing.one</field>
+    <field name="arch" type="xml">
+        <form>
+        <sheet>
+          <button string="Send" type="object" class="oe_highlight" name="send_to_testing_two"/>
+                
+                <group>
+                    <field name="image_proof" widget="image" options="{'size': [50, 50]}" class="oe_avatar"/>
+                    <field name="designation"/>
+                    <field name="department"/>
+                    <field name="complain"/>
+                    <field name="status"/>
+                </group>
+                </sheet>
+        </form>
+    </field>
+</record>
+
+
+<record id="view_testing_one_tree" model="ir.ui.view">
+    <field name="name">testing.one.tree</field>
+    <field name="model">testing.one</field>
+    <field name="arch" type="xml">
+        <tree>  
+            <field name="image_proof" widget="image" options="{'size': [50, 50]}" class="oe_avatar"/> 
+            <field name="designation"/>
+            <field name="department"/>
+            <field name="complain"/>
+            <field name="status" widget="badge"
+                    decoration-info="status == 'on_process'"
+                    decoration-warning="status == 'pending'"
+                    decoration-success="status == 'accepted'"
+            />
+        </tree>
+    </field>
+</record>
+
+<record id="action_testing_one" model="ir.actions.act_window">
+    <field name="name">Testing One</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">testing.one</field>
+    <field name="view_mode">tree,form,kanban</field>
+    <field name="context">{}</field>
+    <field name="help" type="html">
+        <p class="o_view_nocontent_smile_face">
+            Create your test!
+        </p>
+    </field>
+</record>
+
+<menuitem id="menu_testing_one"
+          name="Testing One"
+          action="action_testing_one"
+          parent="menu_testing_one_master"
+          sequence="1"
+/>
+
+
+</odoo>

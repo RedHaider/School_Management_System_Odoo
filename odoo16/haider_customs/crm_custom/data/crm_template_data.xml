@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="mail_template_opportunity_confirmation" model="mail.template">
+            <field name="name">Opportunity: Confirmation</field>
+            <field name="model_id" ref="crm.model_crm_lead"/>
+            <field name="subject">Confirmation for Opportunity: {{ object.name or 'n/a' }}</field>
+            <field name="email_from">{{ (object.user_id.email_formatted or object.company_id.email_formatted or user.email_formatted) }}</field>
+            <field name="partner_to">{{ object.partner_id.id }}</field>
+            <field name="description">Sent to customers on opportunity confirmation</field>
+            <field name="body_html" type="html">
+            <div style="margin: 0; padding: 0; font-size: 14px; line-height: 24px;">
+                <blockquote style="margin: 0; padding: 10px; border-left: 2px solid #333; background-color: #f7f7f7;">
+                    <p style="margin: 0; padding: 0;">
+                        Hello,<br/><br/>
+
+                        Your opportunity <span style="font-weight: bold;" t-out="object.name or ''">{{ object.name or 'Opportunity' }}</span> has been confirmed. Thank you for considering our services!<br/><br/>
+
+                        <strong>Opportunity Details:</strong>
+                        <ul>
+                            <li><strong>Opportunity:</strong> <t t-out="object.name or ''"></t></li>
+                            <li><strong>Expected Revenue:</strong> <t t-out="object.expected_revenue or ''"></t></li>
+                            <li><strong>Probability:</strong> <t t-out="object.probability or ''"></t>%</li>
+                            <li><strong>Stage:</strong> <t t-out="object.stage_id.name or ''"></t></li>
+                        </ul>
+                        <br/>
+
+                        Do not hesitate to contact us if you have any questions.
+                    </p>
+                    <p>
+                    <strong>Product Info:</strong>
+                    <div style="width: 20%;">
+                    <table border="1" style="border-collapse: collapse; width: 100%;">
+                        <thead>
+                            <tr>
+                                <th style="border: 1px solid #000; padding: 8px;">Product Name</th>
+                                <th style="border: 1px solid #000; padding: 8px;">Images</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="object.product_ids" t-as="product">
+                                <tr>
+                                    <td style="border: 1px solid #000; padding: 8px;"><t t-out="product.combined_info"/></td>
+                                    <td style="border: 1px solid #000; padding: 8px;"><img t-attf-src="data:image/png;base64,{{product.product_image}}" style="width:65px; height:65px;" alt="img" /></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                    </div>
+                    </p>
+                </blockquote>
+                
+                <p style="margin: 0; padding: 10px 0;">
+                    <t t-if="not is_html_empty(object.user_id.signature)">
+                        <br/><t t-out="object.user_id.signature or ''"/><br/>Mitchell Admin
+                    </t>
+                </p>
+            </div>
+
+            </field>
+            <field name="lang">{{ object.partner_id.lang }}</field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="sequence_admin" model="ir.sequence">
+            <field name="name">Admin ID Sequence</field>
+            <field name="code">school_management.admin.sequence</field>
+            <field name="prefix">ADMIN_</field>
+            <field name="padding">4</field>
+        </record>
+    </data>
+</odoo>

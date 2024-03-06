@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+         
+        <!-- Form View -->
+    <record id="view_school_admin_form" model="ir.ui.view">
+        <field name="name">sms.school_admin.form</field>
+        <field name="model">sms.school_admin</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="name"/>
+                    <field name="admin_id"/>
+                    <field name="contact_number"/>
+                    <field name="image" widget="image"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_school_admin_tree" model="ir.ui.view">
+        <field name="name">sms.school_admin.tree</field>
+        <field name="model">sms.school_admin</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="admin_id"/>
+                <field name="contact_number"/>
+            </tree>
+        </field>
+    </record>
+
+        
+    <data>
+    <record id="action_school_admin" model="ir.actions.act_window">
+            <field name="name">Admin</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sms.school_admin</field>
+            <field name="view_mode">tree,form</field>
+            <!-- <field name="context">{'search_default_group_by_age': 1}</field> -->
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smile_face">
+                    Create your first Admin !
+                </p>
+            </field>
+    </record>
+    
+        <menuitem id="menu_school_admin"
+                  name="Admin"
+                  action="action_school_admin"
+                  parent="menu_school_admin_master"
+                  sequence="1"
+        />
+    </data>
+        
+        
+    
+</odoo>

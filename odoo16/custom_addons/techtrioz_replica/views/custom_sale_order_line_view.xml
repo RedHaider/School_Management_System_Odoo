@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_custom_sale_order_line_form" model="ir.ui.view">
+        <field name="name">custom.sale.order.line.form</field>
+        <field name="model">custom.sale.order.line</field>
+        <field name="arch" type="xml">
+        <form>
+            <sheet>
+                <group>
+                    <group>
+                        <field name="product_template_id"/>
+                        <field name="description"/>
+                    </group>
+                    <group>
+                        <field name="product_uom_qty"/>
+                        <field name="product_uom"/>
+                        <field name="price_unit"/>
+                    </group>
+                </group>
+                <group>
+                    <field name="tax_id"/>
+                    <field name="price_subtotal"/>
+                </group>
+            </sheet>
+        </form>
+        </field>
+    </record>
+
+
+    <record id="view_custom_sale_order_line_tree" model="ir.ui.view">
+        <field name="name">custom.sale.order.line.tree</field>
+        <field name="model">custom.sale.order.line</field>
+        <field name="arch" type="xml">
+            
+                <tree editable="bottom"> 
+                    <field name="product_template_id"/>
+                    <field name="description"/>
+                    <field name="product_uom_qty"/>
+                    <field name="product_uom"/>
+                    <field name="price_unit"/>
+                    <field name="tax_id"/>
+                    <field name="price_subtotal"/>
+                </tree>
+            
+        </field>
+    </record>
+
+    <record id="action_custom_sale_order_line" model="ir.actions.act_window">
+        <field name="name">Sale Order Lines</field>
+        <field name="res_model">custom.sale.order.line</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Create a new Sale Order Line</p>
+        </field>
+    </record>
+     <menuitem 
+        id="menu_custom_sale_order_line" 
+        name="Order Line" 
+        parent="menu_custom_sale_order_parent" 
+        action="action_custom_sale_order_line"
+        sequence="2"/>
+    
+</odoo>

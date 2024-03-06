@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="techtrioz_custom_sale_note_inherit" model="ir.ui.view">
+        <field name="name">techtrioz.custom.sale.note.inherit</field>
+         <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='sale_order_template_id']" position='after'>
+                 <field name="sale_note"/>
+            </xpath>
+            <xpath expr='//notebook/page/field[@name="order_line"]/tree/field[@name="name"]' position="after">
+                <field name="sale_note_line"/>
+             </xpath>
+        </field>
+    </record>
+</odoo>

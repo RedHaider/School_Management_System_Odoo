@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+techtrioz_replica.access_custom_sale_order,access_custom_sale_order,techtrioz_replica.model_custom_sale_order,base.group_user,1,1,1,1
+techtrioz_replica.access_custom_sale_order_line,access_custom_sale_order_line,techtrioz_replica.model_custom_sale_order_line,base.group_user,1,1,1,1

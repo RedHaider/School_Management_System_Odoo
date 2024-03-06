@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo> 
+    
+        <menuitem id="school_management_system_root"
+                  name="School Management System"
+                  sequence="0"
+        />
+        <menuitem id="menu_school_admin_master"
+                  name="Admin Information"
+                  parent="school_management_system_root"
+                  sequence="0"
+        />     
+    
+</odoo>

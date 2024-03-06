@@ -1,0 +1,6 @@
+<odoo>
+   <record id="complain_access" model="res.groups">
+      <field name="name">Complain Access</field>
+      <field name="category_id" ref="base.module_category_usability"></field>
+   </record>
+</odoo>

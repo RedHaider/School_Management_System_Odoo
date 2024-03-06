@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="wise_crm_lead_view_form_inherit" model="ir.ui.view">
+        <field name="name">techtrioz.crm.lead.form.inherit</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='internal_notes']" position='after'>
+                <page string="Product Info" name="product_info">
+                <field name="product_ids" widget="one2many_list">
+                <tree editable="bottom">
+                    <!-- <field name="default_code" string="Products"/> -->
+                   <field name="combined_info" string="Product Info"/>
+                    <field name="product_image" widget="image" options='{"size": [70, 70]}'/>
+                </tree>
+            </field>
+        </page>
+        </xpath>
+    </field>
+    </record>
+</odoo>
+

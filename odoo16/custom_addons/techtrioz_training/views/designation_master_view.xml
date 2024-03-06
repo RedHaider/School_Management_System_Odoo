@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+         
+         <record id="view_designation_tree" model="ir.ui.view">
+            <field name="name">techtrioz.trainee.designation.master.tree</field>
+            <field name="model">techtrioz.trainee.designation</field>
+            <field name="arch" type="xml">
+                <tree string="Trainee Designation">
+                    <field name="name"/>
+                    <field name="sequence"/>
+                </tree>
+            </field>
+        </record>
+         <record id="view_designation_master_form" model="ir.ui.view">
+            <field name="name">techtrioz.trainee.designation.master.form</field>
+            <field name="model">techtrioz.trainee.designation</field>
+            <field name="arch" type="xml">
+                <form string="Designation Master">
+                    <group>
+                        <field name="name"/>
+                        <field name="sequence"/>
+                    </group>
+                </form>
+            </field>
+         </record>
+         
+
+
+        <data>
+        <record id="action_designation_master_form" model="ir.actions.act_window">
+                <field name="name">Designation/Role Master</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">techtrioz.trainee.designation</field>
+                <field name="view_mode">tree,form</field>
+                <field name="context">{}</field>
+                <field name="help" type="html">
+                  <p class="o_view_nocontent_smile_face">
+                      Create your first Designation !
+                  </p>
+                </field>
+        </record>
+        </data>
+        <menuitem id="menu_designation"
+                  name="Designation"
+                  action="action_designation_master_form" 
+                  parent="menu_designation_master"
+                  sequence="1"
+        />
+</odoo>

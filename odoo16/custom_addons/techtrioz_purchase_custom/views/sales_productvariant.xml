@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="techtrioz_sales_product_variant_view_form_inherit" model="ir.ui.view">
+        <field name="name">techtrioz.sales.product.variant.inherit</field>
+        <field name="model">product.product</field> <!-- Corrected the closing tag -->
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+           <xpath expr="//page[@name='general_information']" position="after">
+                <page string="Product Image" name="product_image">
+                    <group>
+                        <group>
+                             <field name="product_image" widget="image" string="Your Image Field" class="oe_avatar" filename="your_image_field_name"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
